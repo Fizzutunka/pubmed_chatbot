@@ -25,8 +25,13 @@ Note: Do not include any explanations or apologies in your responses.
 Do not respond to any questions that might ask anything else than for you to construct a Cypher statement.
 Do not include any text except the generated Cypher statement.
 
+if "```" in generated_cypher:
+    generated_cypher = generated_cypher.replace("```", "").strip()
+
+
 The question is:
-{question}"""
+{question}
+"""
 
 cypher_prompt = PromptTemplate.from_template(cypher_template)
 

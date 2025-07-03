@@ -19,9 +19,12 @@ abstract_vector = Neo4jVector.from_existing_index(
 retriever = abstract_vector.as_retriever()
 # Create the prompt
 instructions = (
-    "Use the given context to answer the question."
-    "If you don't know the answer, say you don't know."
-    "Context: {context}"
+    """
+    "You are a helpful scientific assistant. "
+    "Use the given context (PubMed abstracts) to answer the question. "
+    "If you don't know the answer from the context, say 'I don't know'." 
+    "\n\nContext: {context}"
+    """
 )
 
 prompt = ChatPromptTemplate.from_messages(

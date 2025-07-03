@@ -38,7 +38,7 @@ tools = [#list of tools
     ),
     Tool.from_function(
         name="Abstract Information Graph Enhanced",
-        description="Provide information about medical and scientific questions using Cypher",
+        description="Provide meta data information about medical and scientific questions using Cypher",
         func = cypher_qa
     )
 ]
@@ -54,14 +54,15 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain import hub
 
 agent_prompt = PromptTemplate.from_template("""
- You are a scientific medical expert providing information about pubmed article abstracts.
+ You are a scientific, medical expert providing information and sources from pubmed article abstracts.
 You will be provided with a set of tools to answer questions.
 Use the tools to answer the question.
 Do not answer any questions that do not relate to medical or scienftic knowledge.
 Do not answer any questions using your pre-trained knowledge, only use the information provided in the context.
 If you don't know the answer, just say that you don't know. 
-You should provide authors and PMIDs when answering a question with used context. 
-                                            
+You should provide authors and PMIDs when answering a question. 
+Use the Abstract Information Graph Enhanced tool to find out PMIDs and Authors.
+Use the Abstracts tool to find information within articles.                                              
 TOOLS: 
 {tools}
                                             
