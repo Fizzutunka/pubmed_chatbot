@@ -38,7 +38,7 @@ tools = [#list of tools
     ),
     Tool.from_function(
         name="Abstract Information Graph Enhanced",
-        description="Provide meta data information about medical and scientific questions using Cypher",
+        description="Provide information about medical and scientific questions using Cypher",
         func = cypher_qa
     )
 ]
@@ -56,13 +56,21 @@ from langchain import hub
 agent_prompt = PromptTemplate.from_template("""
  You are a scientific, medical expert providing information and sources from pubmed article abstracts.
 You will be provided with a set of tools to answer questions.
+                                            
+You are a helpful medical assistant. You must always output valid ReAct format steps. "
+"Never just say 'I don't know'. If you do not know the answer, output: "
+"Thought: I do not know the answer.\nFinal Answer: I do not know."
+                                            
 Use the tools to answer the question.
 Do not answer any questions that do not relate to medical or scienftic knowledge.
 Do not answer any questions using your pre-trained knowledge, only use the information provided in the context.
-If you don't know the answer, just say that you don't know. 
+ 
 You should provide authors and PMIDs when answering a question. 
 Use the Abstract Information Graph Enhanced tool to find out PMIDs and Authors.
-Use the Abstracts tool to find information within articles.                                              
+Use the Abstracts tool to find information within articles. 
+                                        
+When you have used a cypher query, ALWAYS return the pmid to the human
+                                            
 TOOLS: 
 {tools}
                                             
@@ -80,6 +88,7 @@ When you have a response to say to the Human, or if you do not need to use a too
 ```
 Thought: Do I need to use a tool? No
 Final Answer: [your response here]
+
 ```
 
 Begin!
@@ -96,7 +105,8 @@ agent = create_react_agent(llm, tools, agent_prompt) # reasoning and acting agen
 agent_executor = AgentExecutor(
     agent=agent,
     tools=tools,
-    verbose=True
+    verbose=True,
+    handle_parsing_errors=True
     )
 
 chat_agent = RunnableWithMessageHistory( # handiliing chat history

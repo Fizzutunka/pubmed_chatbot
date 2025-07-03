@@ -23,6 +23,7 @@ instructions = (
     "You are a helpful scientific assistant. "
     "Use the given context (PubMed abstracts) to answer the question. "
     "If you don't know the answer from the context, say 'I don't know'." 
+    "If there is a pmid in the context, quote that in your response"
     "\n\nContext: {context}"
     """
 )
