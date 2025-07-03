@@ -12,24 +12,32 @@ Suitable xml files can be unzipped from https://ftp.ncbi.nlm.nih.gov/pubmed/base
 **Create** a ./streamlit file with a .secrets/toml containing:
 
   GOOGLE_API_KEY = ""
+  
   GOOGLE_MODEL = "" e.g gemini-2.5-flash-lite-preview-06-17
 
 /or 
 
   OPENAI_API_KEY=""
+  
   OPENAI_MODEL=""
   
 /and 
   NEO4J_URI = ""
+  
   NEO4J_USERNAME = ""
+  
   NEO4J_PASSWORD = ""
+  
 
 
 **Create** a .env file containing 
 
   NEO4J_URI = ""
+  
   NEO4J_USERNAME = ""
+  
   NEO4J_PASSWORD = ""
+  
 
 **set up** a venv
 
