@@ -9,7 +9,7 @@ LINE 76 data_import.py : Provide a pathname to your local xml file.
 Suitable xml files can be unzipped from https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/ 
 
 
-Create a ./streamlit file with a .secrets/toml containing:
+**Create** a ./streamlit file with a .secrets/toml containing:
 
   GOOGLE_API_KEY = ""
   GOOGLE_MODEL = "" e.g gemini-2.5-flash-lite-preview-06-17
@@ -25,8 +25,10 @@ Create a ./streamlit file with a .secrets/toml containing:
   NEO4J_PASSWORD = ""
 
 
-Create a .env file containing 
+**Create** a .env file containing 
 
   NEO4J_URI = ""
   NEO4J_USERNAME = ""
   NEO4J_PASSWORD = ""
+
+**set up** a venv
