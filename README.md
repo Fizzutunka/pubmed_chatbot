@@ -32,3 +32,6 @@ Suitable xml files can be unzipped from https://ftp.ncbi.nlm.nih.gov/pubmed/base
   NEO4J_PASSWORD = ""
 
 **set up** a venv
+
+
+streamlit run bot.py 
