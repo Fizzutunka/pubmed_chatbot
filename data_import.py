@@ -73,7 +73,7 @@ def parse_pubmed_article(article_elem):
     }
 
 # Load and parse the XML file
-tree = ET.parse("/Users/louisgarrett/Documents/GitHub/pubmed_chatbot/pubmed25n0040.xml")
+tree = ET.parse("YOUR PUBMED .XML TO PARSE")
 root = tree.getroot()
 
 articles = [a for a in (parse_pubmed_article(elem) for elem in root.findall(".//PubmedArticle")) if a]
