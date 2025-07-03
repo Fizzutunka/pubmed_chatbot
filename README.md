@@ -4,43 +4,44 @@ A streamlit chatbot with RAG suitable for querying PubMed abstracts.
 
 # TO DO
 
-LINE 76 data_import.py : Provide a pathname to your local xml file. 
+1. LINE 76 data_import.py : Provide a pathname to your local xml file.
 
 Suitable xml files can be unzipped from https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/ 
 
 
-**Create** a ./streamlit file with a .secrets/toml containing:
 
-  **GOOGLE_API_KEY = ""**
-  
-  **GOOGLE_MODEL = ""** e.g gemini-2.5-flash-lite-preview-06-17
+2. Create a ./streamlit file with a .secrets/toml containing:
 
-/or 
+GOOGLE_API_KEY = ""
+  
+GOOGLE_MODEL = ""            _e.g. gemini-2.5-flash-lite-preview-06-17_
 
-  **OPENAI_API_KEY=""**
-  
-  **OPENAI_MODEL=""**
-  
-/and
+**/or**
 
-  **NEO4J_URI = ""**
+OPENAI_API_KEY=""
   
-  **NEO4J_USERNAME = ""**
+ OPENAI_MODEL=""
   
-  **NEO4J_PASSWORD = ""**
-  
+**/and**
 
-
-**Create** a .env file containing 
-
-  **NEO4J_URI = ""**
+  NEO4J_URI = ""
   
-  **NEO4J_USERNAME = ""**
+  NEO4J_USERNAME = ""
   
-  **NEO4J_PASSWORD = ""**
+  NEO4J_PASSWORD = ""
   
 
-**set up** a venv
+
+3. Create a .env file containing 
+
+  NEO4J_URI = ""
+  
+  NEO4J_USERNAME = ""
+  
+  NEO4J_PASSWORD = ""
+  
+
+4. set up a venv
 
 
-streamlit run bot.py 
+Run the app via: streamlit run bot.py 
